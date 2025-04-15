@@ -32,7 +32,7 @@ jobs:
           ls
           sudo ./patchddi.sh
       - name: Upload a Build Artifact
-        uses: actions/build-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: DeveloperDiskImageModified_16.7.10
           path: | 
