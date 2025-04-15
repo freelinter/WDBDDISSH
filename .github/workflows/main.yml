@@ -24,16 +24,22 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
           ls
           sudo ./patchddi.sh
-          
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/build-artifact@v4
+        with:
+          name: DeveloperDiskImageModified_16.7.10
+          path: | 
+            DeveloperDiskImageModified_16.7.10.dmg
+            DevelopeDiskImageModified_16.7.10.signature
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
         with:
           name: DeveloperDiskImageModified_16.1
           path: |
@@ -41,7 +47,7 @@ jobs:
             DeveloperDiskImageModified_16.1.dmg.signature
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: DeveloperDiskImageModified_16.0
           path: |
@@ -49,7 +55,7 @@ jobs:
             DeveloperDiskImageModified_16.0.dmg.signature
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: DeveloperDiskImageModified_15.7
           path: |
@@ -57,7 +63,7 @@ jobs:
             DeveloperDiskImageModified_15.7.dmg.signature
   
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: DeveloperDiskImageModified_15.6
           path: |
@@ -65,7 +71,7 @@ jobs:
             DeveloperDiskImageModified_15.6.dmg.signature
 
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v2.3.1
+        uses: actions/upload-artifact@v4
         with:
           name: DeveloperDiskImageModified_15.5
           path: |
